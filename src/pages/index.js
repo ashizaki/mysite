@@ -7,7 +7,7 @@ export default function Home() {
         <div className="container">
           <div className="site">
             <a href="index.html">
-              <img src="images/logo.svg" alt="ESSENTIALS" />
+              <img src="/images/logo.svg" alt="ESSENTIALS" />
             </a>
           </div>
           <ul>
@@ -18,6 +18,7 @@ export default function Home() {
       </header>
 
       <section className="hero">
+        <img src="/images/hero.jpg" alt="" />
         <h1>
           There is no love sincerer that
           <br />
