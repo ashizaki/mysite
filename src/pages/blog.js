@@ -7,7 +7,11 @@ import SEO from "../components/seo"
 
 export const query = graphql`
   query {
-    allContentfulBlogPost(sort: { fields: publishDate, order: DESC }) {
+    allContentfulBlogPost(
+      sort: { fields: publishDate, order: DESC }
+      limit: 6
+      skip: 0
+    ) {
       edges {
         node {
           title
