@@ -42,8 +42,8 @@ const options = {
 }
 
 export const query = graphql`
-  query {
-    contentfulBlogPost {
+  query($id: String!) {
+    contentfulBlogPost(id: { eq: $id }) {
       title
       publishDateJP: publishDate(formatString: "YYYY年MM月DD日")
       publishDate
@@ -57,6 +57,15 @@ export const query = graphql`
           ...GatsbyContentfulFluid_withWebp
         }
         description
+        file {
+          details {
+            image {
+              width
+              height
+            }
+          }
+          url
+        }
       }
       content {
         json
