@@ -14,6 +14,9 @@ import {
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types"
 import useContentfulImage from "../utils/useContentfulImage"
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
+
+import SEO from "../components/seo"
 
 const options = {
   renderNode: {
@@ -74,8 +77,18 @@ export const query = graphql`
   }
 `
 
-export default ({ data, pageContext }) => (
+export default ({ data, pageContext, location }) => (
   <Layout>
+    <SEO
+      pagetitle={data.contentfulBlogPost.title}
+      pagedesc={`${documentToPlainTextString(
+        data.contentfulBlogPost.content.json
+      ).slice(0, 70)}…`}
+      pagepath={location.pathname}
+      blogimg={`https:${data.contentfulBlogPost.eyecatch.file.url}`}
+      pageimgw={data.contentfulBlogPost.eyecatch.file.details.image.width}
+      pageimgh={data.contentfulBlogPost.eyecatch.file.details.image.height}
+    />
     <div className="eyecatch">
       <figure>
         <Img

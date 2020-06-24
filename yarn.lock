@@ -996,6 +996,13 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@contentful/rich-text-plain-text-renderer@^14.1.1":
+  version "14.1.1"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-plain-text-renderer/-/rich-text-plain-text-renderer-14.1.1.tgz#2f9ef0e98a121c09a3c5e6005ba73b0c908e8d29"
+  integrity sha512-vKJxxs1mi9cdjE/gcnWAha19gzZYPR0AIhBRo1lxu/OXpBtbS8ndAjFoCFgY6l0I7XqeMgPRZ3Lb4jrBieMIMQ==
+  dependencies:
+    "@contentful/rich-text-types" "^14.1.1"
+
 "@contentful/rich-text-react-renderer@^14.1.1":
   version "14.1.1"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-react-renderer/-/rich-text-react-renderer-14.1.1.tgz#7a205c74c76bdf3ff7e6f315be2aadd3b8df8409"
