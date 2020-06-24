@@ -44,6 +44,14 @@ export const query = graphql`
         }
       }
     }
+    pattern: file(relativePath: { eq: "pattern.jpg" }) {
+      relativePath
+      childImageSharp {
+        fluid(maxWidth: 1920, quality: 90) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
   }
 `
 
@@ -210,6 +218,13 @@ export default function Home({ data }) {
               </a>
             </li>
           </ul>
+        </div>
+        <div className="back">
+          <Img
+            fluid={data.pattern.childImageSharp.fluid}
+            alt=""
+            style={{ height: "100%" }}
+          />
         </div>
       </footer>
     </div>

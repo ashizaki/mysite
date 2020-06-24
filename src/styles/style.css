@@ -300,16 +300,14 @@ svg {
 		height: 367px;
 	}
 }
-
-
 /* フッター */
 .footer {
 	padding-top: 60px;
 	padding-bottom: 60px;
 	color: #fff;
-    background-image: url(/images/pattern.jpg);
-    background-size: cover;
-    background-color: #477294;
+	background-image: none;
+	background-size: cover;
+	background-color: #477294;
 }
 
 .footer .container {
@@ -325,6 +323,25 @@ svg {
 	margin-top: 20px;
 	margin-bottom: 50px;
 	font-size: 14px;
+}
+
+/* フッター　背景画像 */
+.footer {
+	position: relative;
+}
+
+.footer .container {
+	position: relative;
+	z-index: 10;
+}
+
+.footer .back {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 
 @media (min-width: 768px) {
