@@ -10,6 +10,8 @@ module.exports = {
     description: ` おいしい食材と食事を探求するサイト`,
     lang: `ja`,
     siteUrl: `https://adoring-murdock-c0fbf0.netlify.app/`,
+    locale: `ja_JP`,
+    fbappid: `XXXXXXXXXXXXXXXXXXXXX`,
   },
   plugins: [
     `gatsby-transformer-sharp`,

@@ -11,6 +11,8 @@ export default props => {
           lang
           title
           siteUrl
+          locale
+          fbappid
         }
       }
     }
@@ -26,6 +28,13 @@ export default props => {
     ? `${data.site.siteMetadata.siteUrl}${props.pagepath}`
     : data.site.siteMetadata.siteUrl
 
+  const imgurl = props.pageimg
+    ? `${data.site.siteMetadata.siteUrl}${props.pageimg}`
+    : `${data.site.siteMetadata.siteUrl}/thumb.jpg`
+
+  const imgw = props.pageimgw || 1280
+  const imgh = props.pageimgh || 640
+
   return (
     <Helmet>
       <html lang={data.site.siteMetadata.lang} />
@@ -33,6 +42,18 @@ export default props => {
       <meta name="description" content={description} />
 
       <link rel="canonical" href={url} />
+
+      <meta property="og:site_name" content={data.site.siteMetadata.title} />
+      <meta property="og:title" content={title} />
+      <meta property="description" content={description} />
+      <meta property="og:url" content={url} />
+      <meta property="og:type" content="website" />
+      <meta property="og:locale" content={data.site.siteMetadata.local} />
+      <meta property="fb:app_id" content={data.site.siteMetadata.fbappid} />
+
+      <meta property="og:image" content={imgurl} />
+      <meta property="og:image:width" content={imgw} />
+      <meta property="og:image:height" content={imgh} />
     </Helmet>
   )
 }
