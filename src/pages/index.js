@@ -4,6 +4,8 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 
+import SEO from "../components/seo"
+
 export const query = graphql`
   query {
     hero: file(relativePath: { eq: "hero.jpg" }) {
@@ -52,6 +54,7 @@ export const query = graphql`
 export default function Home({ data }) {
   return (
     <Layout>
+      <SEO />
       <section className="hero">
         <figure>
           <Img

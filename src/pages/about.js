@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faUtensils, faCheckSquare } from "@fortawesome/free-solid-svg-icons"
+import SEO from "../components/seo"
 
 export const query = graphql`
   query {
@@ -23,6 +24,10 @@ export const query = graphql`
 export default function Home({ data }) {
   return (
     <Layout>
+      <SEO
+        pagetitle="ESSENTIALSについて"
+        pagedesc="食べ物についての情報を発信しているサイトです。"
+      />
       <div className="eyecatch">
         <figure>
           <Img
