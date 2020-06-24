@@ -51,7 +51,7 @@ export const query = graphql`
   }
 `
 
-export default function Home({ data }) {
+export default ({ data }) => {
   return (
     <Layout>
       <SEO />

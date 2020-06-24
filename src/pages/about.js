@@ -21,12 +21,13 @@ export const query = graphql`
   }
 `
 
-export default function Home({ data }) {
+export default ({ data, location }) => {
   return (
     <Layout>
       <SEO
         pagetitle="ESSENTIALSについて"
         pagedesc="食べ物についての情報を発信しているサイトです。"
+        pagepath={location.pathname}
       />
       <div className="eyecatch">
         <figure>
