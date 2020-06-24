@@ -8,9 +8,33 @@ import { faClock, faFolderOpen } from "@fortawesome/free-solid-svg-icons"
 import {
   faChevronLeft,
   faChevronRight,
+  faCheckSquare,
 } from "@fortawesome/free-solid-svg-icons"
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS } from "@contentful/rich-text-types"
+import useContentfulImage from "../utils/useContentfulImage"
+
+const options = {
+  renderNode: {
+    [BLOCKS.HEADING_2]: (node, children) => (
+      <h2>
+        <FontAwesomeIcon icon={faCheckSquare} />
+        {children}
+      </h2>
+    ),
+    [BLOCKS.EMBEDDED_ASSET]: node => (
+      <Img
+        fluid={useContentfulImage(node.data.target.fields.file["ja-JP"].url)}
+        alt={
+          node.data.target.fields.description["ja-JP"]
+            ? node.data.target.fields.description["ja-JP"]
+            : node.data.target.fields.title["ja-JP"]
+        }
+      />
+    ),
+  },
+}
 
 export const query = graphql`
   query {
@@ -67,7 +91,10 @@ export default ({ data }) => (
           </div>
         </aside>
         <div className="postbody">
-          {documentToReactComponents(data.contentfulBlogPost.content.json)}
+          {documentToReactComponents(
+            data.contentfulBlogPost.content.json,
+            options
+          )}
         </div>
         <ul className="postlink">
           <li className="prev">
