@@ -30,7 +30,7 @@ const options = {
       <Img
         fluid={useContentfulImage(node.data.target.fields.file["ja-JP"].url)}
         alt={
-          node.data.target.fields.description["ja-JP"]
+          node.data.target.fields.description
             ? node.data.target.fields.description["ja-JP"]
             : node.data.target.fields.title["ja-JP"]
         }
