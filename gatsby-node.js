@@ -54,6 +54,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         skip: blogPostsPerPage * i,
         limit: blogPostsPerPage,
+        currentPage: i + 1,
+        isFirst: i + 1 === 1,
+        isLast: i + 1 === blogPages,
       },
     })
   })
