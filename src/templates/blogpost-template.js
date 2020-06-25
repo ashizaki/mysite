@@ -107,11 +107,10 @@ export default ({ data, pageContext, location }) => (
           </time>
           <div className="cat">
             <FontAwesomeIcon icon={faFolderOpen} />
-            <i className="far fa-folder-open" />
             <ul>
               {data.contentfulBlogPost.category.map(cat => (
                 <li className={cat.categorySlug} key={cat.id}>
-                  {cat.category}
+                  <Link to={`/cat/${cat.categorySlug}/`}>{cat.category}</Link>
                 </li>
               ))}
             </ul>

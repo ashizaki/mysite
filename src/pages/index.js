@@ -5,11 +5,6 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 
 import SEO from "../components/seo"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import {
-  faChevronLeft,
-  faChevronRight,
-} from "@fortawesome/free-solid-svg-icons"
 
 export const query = graphql`
   query {
