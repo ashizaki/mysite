@@ -73,6 +73,12 @@ export const query = graphql`
       content {
         json
       }
+      tableauTitle
+      tableauUrl {
+        tableauUrl
+      }
+      tableauWidth
+      tableauHeight
     }
   }
 `
@@ -120,6 +126,14 @@ export default ({ data, pageContext, location }) => (
           {documentToReactComponents(
             data.contentfulBlogPost.content.json,
             options
+          )}
+          {data.contentfulBlogPost.tableauUrl && (
+            <iframe
+              title={data.contentfulBlogPost.tableauTitle}
+              src={`${data.contentfulBlogPost.tableauUrl.tableauUrl}&:showVizHome=no&:embed=true`}
+              width={data.contentfulBlogPost.tableauWidth}
+              height={data.contentfulBlogPost.tableauHeight}
+            />
           )}
         </div>
         <ul className="postlink">
