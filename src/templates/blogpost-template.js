@@ -12,11 +12,28 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
-import { BLOCKS } from "@contentful/rich-text-types"
+import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 import useContentfulImage from "../utils/useContentfulImage"
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
 
 import SEO from "../components/seo"
+
+import styled from "styled-components"
+
+const IframeContainer = styled.span`
+  padding-bottom: 56.25%;
+  position: relative;
+  display: block;
+  width: 100%;
+
+  > iframe {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+`
 
 const options = {
   renderNode: {
@@ -36,6 +53,30 @@ const options = {
         }
       />
     ),
+    [INLINES.HYPERLINK]: node => {
+      if (node.data.uri.includes("youtube.com/embed")) {
+        return (
+          <IframeContainer>
+            <iframe
+              title={node.data.url}
+              src={node.data.uri}
+              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+              frameBorder="0"
+              allowFullScreen
+            ></iframe>
+          </IframeContainer>
+        )
+      } else if (node.data.uri.includes("tableau.com")) {
+        return (
+          <IframeContainer>
+            <iframe
+              title={node.data.url}
+              src={`${node.data.uri}&:showVizHome=no&:embed=true`}
+            ></iframe>
+          </IframeContainer>
+        )
+      }
+    },
   },
   renderText: text => {
     return text.split("\n").reduce((children, textSegment, index) => {
